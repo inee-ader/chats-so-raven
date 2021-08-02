@@ -1,0 +1,59 @@
+/* .sidebar {
+  background-color: lightcoral;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-top: 15px;
+  height: 88vh;
+  justify-content: center;
+  border-right: 3px solid black;
+}
+.room_list_container {
+  text-align: center;
+}
+
+.room_list {
+  padding: 20px;
+  list-style: none;
+  align-items: center;
+}
+
+.room {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  color: black;
+  border-bottom: 1px solid white;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.room:hover {
+  cursor: pointer;
+  color: black;
+  border-bottom: 1px solid white;
+}
+
+.active_room {
+  font-size: 20px;
+  font-weight: bold;
+  width: 100%;
+  color: white;
+  border-bottom: 1px solid black;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.logout_button {
+  padding: 10px;
+  font-size: 20px;
+  background-color: black;
+  border: 3px solid pink;
+  color: white;
+  border-radius: 8px;
+  width: 100%;
+}
+.logout_button:hover {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  border: 3px solid black;
+} */
