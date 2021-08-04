@@ -1,0 +1,31 @@
+.display_room_form {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.hide_room_form {
+  display: none;
+}
+
+.add_room_h {
+  color: black;
+  font-size: 30px;
+  text-align: center;
+  margin: 10px;
+  letter-spacing: 5px;
+  font-family: 'Palette Mosaic', cursive;
+}
+
+.add_room_input {
+  font-size: 20px;
+  margin-bottom: 20px;
+  padding: 5px;
+  outline: none;
+  width: 80%;
+  background-color: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+}

@@ -1,59 +1,37 @@
-/* .sidebar {
-  background-color: lightcoral;
-  padding-left: 100px;
-  padding-right: 100px;
+.sidebar {
+  background-color: rgb(184, 169, 197);
+  padding-left: 5%;
+  padding-right: 5%;
   padding-top: 15px;
-  height: 88vh;
-  justify-content: center;
   border-right: 3px solid black;
-}
-.room_list_container {
+  height: auto;
+  width: 30%;
   text-align: center;
 }
 
-.room_list {
-  padding: 20px;
-  list-style: none;
+.sidebar_logout_button_container {
   align-items: center;
+  justify-content: center;
 }
 
-.room {
-  font-size: 20px;
-  font-weight: bold;
-  width: 100%;
-  color: black;
-  border-bottom: 1px solid white;
-  margin-bottom: 30px;
-  text-align: center;
-}
-.room:hover {
-  cursor: pointer;
-  color: black;
-  border-bottom: 1px solid white;
-}
-
-.active_room {
-  font-size: 20px;
-  font-weight: bold;
-  width: 100%;
-  color: white;
-  border-bottom: 1px solid black;
-  margin-bottom: 30px;
-  text-align: center;
-}
-
-.logout_button {
-  padding: 10px;
+.sidebar_logout_button {
+  padding: 5px;
   font-size: 20px;
   background-color: black;
-  border: 3px solid pink;
+  border: 2px solid white;
   color: white;
   border-radius: 8px;
-  width: 100%;
+  width: 80%;
+  margin-top: 60px;
 }
-.logout_button:hover {
+
+.sidebar_logout_button:hover {
   background-color: white;
   color: black;
   cursor: pointer;
-  border: 3px solid black;
-} */
+  border: 2px solid black;
+}
+
+.hidden_button {
+  display: none;
+}

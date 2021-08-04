@@ -1,0 +1,40 @@
+
+.navbar {
+  background-color: black;
+  color: white;
+  border-bottom: 3px solid white;
+  padding: 0;
+}
+
+.navbar_content {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 10%;
+  margin-right: 10%;
+}
+
+.navbar_icon {
+  width: 100px;
+  margin: 20px;
+  object-fit: contain;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .navbar_icon {
+    animation: App-logo-spin infinite 0.5s linear;
+    animation-direction: alternate;
+  }
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(15deg);
+  }
+}
+
+.navbar_title {
+  font-size: 40px;
+  justify-content: center;
+  font-family: 'Palette Mosaic', cursive;
+}

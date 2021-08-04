@@ -1,33 +1,42 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react'
 
-class SendMessageForm extends Component {
+import useSound from 'use-sound';
+import crowSound from '../sounds/crowSound.mp3'
 
-  state = {
-    text: ''
-  }
+import '../styles/SendMessageForm.css'
 
-  onMessageSend = (e) => {
+function SendMessageForm(props) {
+  const soundClip = crowSound
+  const [ play ] = useSound(soundClip)
+
+  const [ text, setText ] = useState()
+  const handleTextChange = (e) => setText(e.target.value)
+
+  const onMessageSend = (e) => {
     e.preventDefault()
+    
     const message={
       created: Date.now(),
-      text: this.state.text,
-      author: this.props.uid,
-      roomId: this.props.roomId,
-      email: this.props.email
+      text: text,
+      author: props.uid,
+      roomId: props.roomId,
+      email: props.email
     }
-    this.props.sendMessage(message)
-    this.setState({text: ''})
+    props.sendMessage(message)
+    play()
+    setText('')
   }
 
-  render(){
     return(
-      <form onSubmit={this.onMessageSend}>
-        <div className='control'>
-          <input type='text' value={this.state.text} onChange={(e) => this.setState({text: e.target.value})} className='input' placeholder='Caw caw! What is the message?' />
+      <form className='message_form_container' onSubmit={onMessageSend}>
+        <div>
+          <input type='text' 
+          value={text}
+          onChange={handleTextChange}
+          className='message_input' placeholder='Caw caw! What is the message?' />
         </div>
       </form>
     )
   }
-}
 
 export default SendMessageForm;

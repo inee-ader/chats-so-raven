@@ -1,0 +1,18 @@
+.message_form_container {
+  width: 100%;
+}
+
+.message_input {
+  font-size: 25px;
+  margin-bottom: 20px;
+  margin-top: 70px;
+  padding: 10px;
+  outline: none;
+  width: 100%;
+  font-style: bold;
+  background-color: black;
+  border: 2px solid white;
+  height: 5%;
+  color: white;
+  border-radius: 5px;
+}

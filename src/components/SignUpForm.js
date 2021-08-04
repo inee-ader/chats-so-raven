@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 
+import '../styles/Forms.css'
+
 class SignUpForm extends Component {
   state = {
     email: '',
     password: '', 
-    // displayName: ''
   }
   updateEmail = (e) => {
     this.setState({
@@ -16,56 +17,41 @@ class SignUpForm extends Component {
       password: e.target.value
     })
   }
-  // updateDisplayName = (e) => {
-  //   this.setState({
-  //     displayName: e.target.value
-  //   })
-  // }
+
   onSubmit = (e) => {
     e.preventDefault()
     this.props.onSignUp(this.state)
     this.setState({
       email: '', 
       password: '',
-      // displayName: ''
     })
   }
   render(){
 
     return(
-      <div className='box column is-half'>
-        <h2 className='title'>SIGN UP </h2>
+      <div className='form_container'>
+        <h2 className='form_title'>SIGN UP </h2>
         <form onSubmit={this.onSubmit}>
-          <div className='field'>
-            <div className='control'>
-              <input 
-                className='input'
-                type='text' placeholder='Email' 
-                value={this.state.email}
-                onChange={this.updateEmail}
-              />
-            </div>
+          <div className='input_div'>
+            <input 
+              className='form_input'
+              type='text' placeholder='Email' 
+              value={this.state.email}
+              onChange={this.updateEmail}
+            />
           </div>
-          {/* <input 
-            type='text'
-            placeholder='Display Name'
-            value={this.state.displayName}
-            onChange={this.updateDisplayName}
-          /> */}
-          <div className='field'>
-            <div className='control'>
-              <input 
-                className='input'
-                type='password' 
-                placeholder='Password' 
-                value={this.state.password}
-                onChange={this.updatePassword}
-              />
-            </div>
+          <div className='input_div'>
+            <input 
+              className='form_input'
+              type='password' 
+              placeholder='Password' 
+              value={this.state.password}
+              onChange={this.updatePassword}
+            />
           </div>
-          <button className='button is-fullwidth is-primary' type='submit'>Sign Up</button>
+          <button className='form_button' type='submit'>Sign Up</button>
         </form>
-        <button className='button is-text' onClick={this.props.goToLogin}>Already have an account? Go login!</button>
+        <button className='form_toggle' onClick={this.props.goToLogin}>Already have an account? Go login!</button>
       </div>
     )
   }

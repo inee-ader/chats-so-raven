@@ -1,13 +1,19 @@
 import React from 'react';
 import RoomList from './RoomList'
 
-const SideBar = ({ rooms, logout, selectedRoom, setRoom, addRoom }) => {
+import '../styles/SideBar.css'
+
+const SideBar = ({ rooms, logout, selectedRoom, setRoom, addRoom, isLoggedIn }) => {
+
+  const logoutStyles = isLoggedIn === false ? 
+    'hidden_button' : 'sidebar_logout_button'
+
   return (
-    <div className='column is-3 hero is-primary' style={{ padding: '10px' }}>
-      <RoomList rooms={rooms} selectedRoom={selectedRoom} setRoom={setRoom} addRoom={addRoom}/>
+    <div className='sidebar' style={{ padding: '10px' }}>
+      <RoomList rooms={rooms} selectedRoom={selectedRoom} setRoom={setRoom} addRoom={addRoom} isLoggedIn={isLoggedIn}/>
       
-      <div className='control'>
-        <button className='button is-fullwidth is-info' onClick={logout} >Logout</button>
+      <div className='sidebar_logout_button_container'>
+        <button className={logoutStyles} onClick={logout} >Logout</button>
       </div>
     </div>
   );

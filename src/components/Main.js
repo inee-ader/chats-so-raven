@@ -1,13 +1,14 @@
 import React from 'react';
 
-const Main = ({ children }) => {
+import '../styles/Main.css'
+
+const Main = ({ children, isLoggedIn }) => {
+
+  const backgroundStyle = isLoggedIn ? 'background_loggedIn' : 'background_notLoggedIn'
+  
   return (
-    <div className='column hero'>
-      <div className='hero-body'>
-        <div className='columns is-centered'>
-          { children }
-        </div>
-      </div>
+    <div className={backgroundStyle}>
+        { children }
     </div>
   )
 }

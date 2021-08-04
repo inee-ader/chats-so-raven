@@ -1,18 +1,18 @@
 import React, {Component} from 'react'
-// import TopBar from './components/TopBar'
 import Navbar from './components/Navbar'
 import SideBar from './components/SideBar'
 import SignUpForm from './components/SignUpForm'
 import LoginForm from './components/LoginForm'
 import ChatPanel from './components/ChatPanel'
 import Main from './components/Main'
+import SendMessageForm from './components/SendMessageForm'
 import { auth, messageRef, roomRef } from './firebase'
 
-import '../node_modules/bulma/css/bulma.css'
+import './styles/App.css'
 
-auth.createUserWithEmailAndPassword('i@i.com', '67ghj!!')
-    .then(res => console.log('Response', res))
-    .catch(err => console.error(err))
+// auth.createUserWithEmailAndPassword('i@i.com', '67ghj!!')
+//     .then(res => console.log('Response', res))
+//     .catch(err => console.error(err))
 
 class App extends Component {
 
@@ -21,64 +21,69 @@ class App extends Component {
     wantsToLogIn: false,
     email: '',
     uid: null, 
-    // displayName: ''
     rooms: {},
     selectedRoom: null,
-    messages: {}
+    messages: {},
   }
 
   loadData = () => {
     roomRef.once('value')
-            .then(snapshot => {
-              const rooms = snapshot.val()
-              const selectedRoom = Object.keys(rooms)[0]
-              this.setState({
-                rooms, 
-                selectedRoom
-              });
-              return messageRef
+          .then(snapshot => {
+            const rooms = snapshot.val();
+            const selectedRoom = Object.keys(rooms)[0];
+            this.setState({
+              rooms,
+              selectedRoom
+            });
+            return messageRef
                     .orderByChild('roomId')
                     .equalTo(selectedRoom)
                     .once('value');
-            }, 
-            // console.log('messageRef: ', messageRef)
-            )
-            // Error: messageRef coming back undefined
-            .then(snapshot => {
-              console.log('messages', snapshot.val())
-              // const messages = snapshot.val()
-              // this.setState({
-              //   messages
-              // })
-            })
-            .catch(err => console.error(err));
+          })
+          .then(snapshot => {
+             const messages = snapshot.val() || {};
+             this.setState({
+               messages
+             });
+          })
+          .catch(err => console.error(err));
   }
 
-  componentDidMount() {
+  componentDidMount(){
     auth.onAuthStateChanged(user => {
       if(user){
-        const {email, uid} = user
+        const {email, uid} = user;
         this.setState({
-          email, 
-          uid, 
+          email,
+          uid,
           isLoggedIn: true
         });
         this.loadData();
         roomRef.on('value', snapshot => {
-          const rooms = snapshot.val()
+          const rooms = snapshot.val();
           this.setState({
             rooms
           });
         });
+        messageRef
+          .on('child_added', snapshot => {
+            const message = snapshot.val();
+            const key = snapshot.key;
+            if(message.roomId === this.state.selectedRoom){
+              this.setState({
+                messages: {
+                  ...this.state.messages,
+                  [key]: message
+                }
+              })
+            }
+          });
       }
     });
   }
 
   handleSignUp = ({ email, password }) => {
     auth.createUserWithEmailAndPassword(email, password)
-    // can remove the .then to send email verification, etc
-    // otherwise it persists the user and logs them in 
-        // .then(user => console.log(user))
         .catch(err => console.error(err))
   }
 
@@ -112,7 +117,8 @@ class App extends Component {
       .equalTo(id)
       .once('value')
       .then(snapshot => {
-        const messages = snapshot.val()
+        // Inee: add empty object in case there are no messages to set state to.
+        const messages = snapshot.val() || {}
         this.setState({
           selectedRoom: id,
           messages
@@ -135,25 +141,24 @@ class App extends Component {
 
   render(){
     return (
-      <div className='container'>
+      <div className='app_container'>
           <Navbar />
-        <div className='columns is-gapless vh-100'>
-          <SideBar rooms={this.state.rooms} logout={this.logout} selectedRoom={this.state.selectedRoom} setRoom={this.setRoom} addRoom={this.addRoom}
+        <div className='sidebar_main_container'>
+          <SideBar isLoggedIn={this.state.isLoggedIn} rooms={this.state.rooms} logout={this.logout} selectedRoom={this.state.selectedRoom} setRoom={this.setRoom} addRoom={this.addRoom}
           />
-
           {this.state.isLoggedIn ? 
-            <Main>
-              <ChatPanel roomId={this.state.selectedRoom} email={this.state.email} uid={this.state.uid} messages={this.state.messages} sendMessage={this.sendMessage} /> 
+            <Main isLoggedIn={this.state.isLoggedIn}>
+              <ChatPanel messages={this.state.messages} /> 
+              <SendMessageForm email={this.state.email} roomId={this.state.selectedRoom} sendMessage={this.sendMessage} uid={this.state.uid}/>
             </Main> 
             : 
-            <Main>
+            <Main isLoggedIn={this.state.isLoggedIn}>
               {this.state.wantsToLogIn ? 
                 <LoginForm onLogin={this.handleLogin} goToSignUp={() => this.setState({wantsToLogIn: false})}/> 
                 :
                 <SignUpForm onSignUp={this.handleSignUp} goToLogin={() => this.setState({wantsToLogIn: true})}/>  
               }
             </Main>
-
           }
 
         </div>

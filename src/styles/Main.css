@@ -1,0 +1,23 @@
+.main_container {
+  padding: 40px;
+}
+
+.background_loggedIn {
+  background: url(../images/moon.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 90vh;
+  width: 100%;
+  padding: 40px;
+}
+
+.background_notLoggedIn {
+  background: url(../images/ravenPicture.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 90vh;
+  width: 100%;
+  padding: 40px;
+}

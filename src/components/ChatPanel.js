@@ -1,12 +1,13 @@
 import React from 'react';
 import MessageList from './MessageList'
-import SendMessageForm from './SendMessageForm'
+// import SendMessageForm from './SendMessageForm'
+
+import '../styles/ChatPanel.css'
 
 const ChatPanel = (props) => {
   return (
-    <div className='column is-fullwidth'>
+    <div className='chat_panel_container'>
       <MessageList messages={props.messages} />
-      <SendMessageForm sendMessage={props.sendMessage} email={props.email} roomId={props.roomId} uid={props.uid} />
     </div>
   );
 }

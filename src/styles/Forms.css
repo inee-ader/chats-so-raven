@@ -1,45 +1,61 @@
-/* .loginForm_container {
+.form_container {
+  margin-left: auto;
+  margin-right: auto;
   padding: 20px;
-  margin: 20px;
   align-items: center;
   display: grid;
-  width: 100%;
-  border: 3px solid lightcoral;
-} */
-/* 
-.signUpForm_container{
-  padding: 20px;
-  margin: 20px;
-  align-items: center;
-  display: grid;
-  width: 100%;
-  border: 3px solid lightcoral;
-} */
-/* 
-form {
-  padding: 30px;
-  align-items: center;
-  display: grid;
-  width: 100%;
-} */
-/* 
-input {
+  width: 80%;
+  border: 3px solid black;
+  text-align: center;
+  height: 50%;
+  margin-top: 20%;
+} 
+
+.form_title {
+  font-style: bold;
+} 
+
+.input_div {
+  padding: 10px;
+}
+
+.form_input {
   padding: 10px;
   margin-bottom: 10px;
-} */
-/* 
-.submit_button {
-  padding: 10px;
+  font-size: 20px;
+  outline: none;
+  width: 40%;
+  border-radius: 5px;
+}
+
+.form_button {
+  padding-top: 10px;
+  padding-bottom: 10px;
   font-size: 20px;
   background-color: black;
-  border: 3px solid pink;
+  border: 3px solid white;
   color: white;
   border-radius: 8px;
-  width: 100%;
+  width: 40%;
 }
-.submit_button:hover {
+.form_button:hover {
   background-color: white;
+  border: 3px solid black;
   color: black;
   cursor: pointer;
-  border: 3px solid black;
-} */
+}
+
+.form_toggle {
+  margin-top: 10px;
+  border: none;
+  background-color: transparent;
+  font-size: 20px;
+  color: white;
+  font-weight: 600;
+}
+.form_toggle:hover {
+  font-style: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  font-style: italic;
+}

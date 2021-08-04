@@ -1,23 +1,14 @@
-/* .app {
-  background-color: pink;
-  height: 100vh;
+.app_container {
+  background-color: black;
+  height: 90vh;
+  font-family: 'Open Sans', sans-serif;
 }
 
-.topbar_container {
-  background-color: pink;
-}
-
-.sidebar_container {
+.sidebar_main_container {
   display: flex;
 }
 
-.user_forms {
-  display: block;
-  padding: 30px;
+::placeholder {
+  font-family: 'Open Sans', sans-serif;
+  color: rgba(107, 103, 103, 0.995);
 }
-
-.loggedIn_view {
-  padding: 30px;
-  font-weight: bold; 
-  font-size: 20px;
-} */

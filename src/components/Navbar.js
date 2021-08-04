@@ -1,14 +1,15 @@
 import React from 'react';
-import ravenHead from '../images/ravenHead.png'
+// import ravenHead from '../images/ravenWhite.png'
+import ravenMagic from '../images/ravenMagic.png'
+import '../styles/Navbar.css'
 
 const Navbar = () => {
   return (
-    <nav className='navbar is-black' role='navigation'>
-      <div className='navbar-brand'>
-        <img alt='raven head icon' src={ravenHead}/>
-        <p className='title is-1'>Chat's so Raven</p>
+    <nav className='navbar' role='navigation'>
+      <div className='navbar_content'>
+        <img className='navbar_icon' alt='raven icon' src={ravenMagic}/>
+        <h1 className='navbar_title'>CHAT'S SO RAVEN</h1>
       </div>
-        <p className='subtitle is-3'>Caw caw!</p>
     </nav>
   );
 }
