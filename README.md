@@ -8,6 +8,8 @@ It's hooked up to Firebase!
 
 Please leave appropriate chat messages <3 
 
+It's only formatted for desktop size, and down to iPad size...
+
 # TO BEGIN
 
 `npm start` 
