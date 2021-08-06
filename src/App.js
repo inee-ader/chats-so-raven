@@ -10,10 +10,6 @@ import { auth, messageRef, roomRef } from './firebase'
 
 import './styles/App.css'
 
-// auth.createUserWithEmailAndPassword('i@i.com', '67ghj!!')
-//     .then(res => console.log('Response', res))
-//     .catch(err => console.error(err))
-
 class App extends Component {
 
   state = {
@@ -148,7 +144,7 @@ class App extends Component {
           />
           {this.state.isLoggedIn ? 
             <Main isLoggedIn={this.state.isLoggedIn}>
-              <ChatPanel messages={this.state.messages} /> 
+              <ChatPanel messages={this.state.messages} isLoggedIn={this.state.isLoggedIn}/> 
               <SendMessageForm email={this.state.email} roomId={this.state.selectedRoom} sendMessage={this.sendMessage} uid={this.state.uid}/>
             </Main> 
             : 

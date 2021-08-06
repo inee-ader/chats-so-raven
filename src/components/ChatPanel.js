@@ -7,7 +7,7 @@ import '../styles/ChatPanel.css'
 const ChatPanel = (props) => {
   return (
     <div className='chat_panel_container'>
-      <MessageList messages={props.messages} />
+      <MessageList messages={props.messages} /> 
     </div>
   );
 }

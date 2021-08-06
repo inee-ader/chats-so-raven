@@ -1,5 +1,5 @@
-import React from 'react';
-import AddRoomForm from './AddRoomForm'
+import React, { useEffect } from 'react';
+import AddRoomForm from './AddRoomForm';
 
 import '../styles/RoomList.css'
 
@@ -20,14 +20,19 @@ const RoomList = ({ rooms, selectedRoom, setRoom, addRoom, isLoggedIn }) => {
 
   const roomListStyle = isLoggedIn ? <h2 className='room_menu_title'>NESTS</h2> 
                                   : <h2 className='room_menu_title'>Welcome to the flock...</h2>
-
   return (
     <div className='room_menu_container'>
       {roomListStyle}
       <ul className='room_ul'>
         {Object.keys(rooms)
                .map(roomKey => ({ ...rooms[roomKey], id: roomKey}))
-               .map(roomObj => <Room key={roomObj.id} room={roomObj} selectedRoom={selectedRoom} setRoom={setRoom}/>)
+               .map(roomObj => 
+                <Room 
+                  key={roomObj.id} 
+                  room={roomObj} 
+                  selectedRoom={selectedRoom} 
+                  setRoom={setRoom}
+                />)
         }
       </ul>
       <div>
