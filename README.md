@@ -13,6 +13,7 @@ It's only formatted for desktop size, and down to iPad size...
 # TO BEGIN
 
 `npm start` 
+You can open up a second terminal and `npm start` again to run 2 chats at the same time side by side. 
 
 # THAT'S IT
 
